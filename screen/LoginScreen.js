@@ -3,65 +3,71 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function LoginScreen() {
     const navigation = useNavigation();
     return (
     <View style={{
         flex: 1,
-        justifyContent: "flex-start",
-        padding: 20,
-        backgroundColor: "#ffffff"
+        backgroundColor: "#efefef"
     }}>
-        
+        <View style={{ backgroundColor:'white', marginBottom:100}}>
         <Text style={{
                 fontSize: 28,
                 fontWeight: 'bold',
                 textAlign: 'center',
                 marginVertical: 20,
-                marginBottom:130,
+                marginBottom:20,
+                padding:10,
                 color: 'blue'
             }}>
                 Smart Space
         </Text>
-
-        <Card>
+        </View>
+        <MaterialIcons name='meeting-room' size={50} style={{ alignSelf:'center', marginTop:20}}/>
+        <View style={{ marginVertical:20}}>
         <Text style={{
                 fontSize: 21,
                 textAlign:'center',
                 fontWeight: 'bold',
-                marginTop:100,
-                marginBottom:20
             }}>
                 Welcome Back
         </Text>
         <Text style={{
             textAlign:'center',
-            marginVertical:20
+            marginVertical:10
         }}>
-            Sign in to continue
+            login to continue
         </Text>
-        <View><TextInput style={{
+        </View>
+
+        <View>
+            <TextInput style={{
             backgroundColor:'white',
-            borderColor:'black',
-            borderTopLeftRadius:10,
-            borderTopRightRadius:10,
+            borderColor:'grey',
             padding:14,
-            marginTop:10
+            marginVertical:5,
+            marginHorizontal:40,
+            borderWidth:1,
+            borderRadius:10
         }}placeholder='Username'/>
         </View>
         <View>
             <TextInput style={{
                 backgroundColor:'white',
-                borderColor:'black',
-                borderBottomRightRadius:10,
-                borderBottomLeftRadius:10,
-                padding:14
+                borderColor:'grey',
+                marginBottom:10,
+                marginHorizontal:40,
+                padding:14,
+                borderWidth:1,
+                borderRadius:10
             }}placeholder='Password'/>
         </View>
-        
-        <Button title="Login" pressed={() => navigation.navigate("Home")}/>
-        </Card>
+        <View style={{ marginVertical:10 }}>
+            <Button title="Login" pressed={() => navigation.navigate("Home")} 
+            custom={{marginHorizontal:40, marginVertical:10}}/>
+        </View>
         
     </View>
 )

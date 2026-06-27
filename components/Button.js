@@ -1,17 +1,11 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function Button({pressed, title}) {
+export default function Button({pressed, title, custom}) {
     return (
         <TouchableOpacity 
         onPress={pressed}
-        style={{
-            backgroundColor:'blue',
-            padding:10,
-            borderRadius:20,
-            marginVertical:20,
-            marginHorizontal:10
-            }}>
+        style={[style.container, custom]}>
             <Text style={{
                 color:'white', 
                 fontSize:15,
@@ -20,5 +14,12 @@ export default function Button({pressed, title}) {
                 {title}
             </Text>
         </TouchableOpacity>
-)
-}
+)}
+
+const style = StyleSheet.create({
+    container:{
+        backgroundColor:'blue',
+        padding:10,
+        borderRadius:20
+    }
+})
